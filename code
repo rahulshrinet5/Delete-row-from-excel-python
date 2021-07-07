@@ -1,0 +1,5 @@
+import pandas as pd
+df = pd.read_excel(data_loaded['Output_File_path_with_name'])
+Filter = df["Role Name"].apply(lambda x: str(x).strip() ).isin([data_loaded['DELETE_THIS']])
+Final = df[~Filter]
+Final.to_excel(data_loaded['Output_File_path_with_name'],sheet_name='data',index=False)
